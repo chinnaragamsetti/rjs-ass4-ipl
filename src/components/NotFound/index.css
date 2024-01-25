@@ -1,0 +1,10 @@
+/* Write your CSS here */
+.notfoundlogocontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notfound {
+  font-size: 30px;
+  color: #ffffff;
+}

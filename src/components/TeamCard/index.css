@@ -1,0 +1,18 @@
+/* Write your CSS here */
+
+.teamcontainer {
+  width: 40%;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.teamurl {
+  width: 20px;
+  empty-cells: 20px;
+}
+.teamname {
+  font-size: 10px;
+  color: #ffffff;
+}

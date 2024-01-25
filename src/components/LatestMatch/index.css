@@ -1,0 +1,35 @@
+/* Write your CSS here */
+.latestMatchcontainer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  height: 15%;
+}
+.topcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bottomcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.leftcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 70%;
+}
+.wonteamname {
+  font-size: 20px;
+  color: #ffffff;
+}
+.p {
+  font-size: 10px;
+  color: #ffffff;
+}
+.wonteamimage {
+  width: 40px;
+  height: 40px;
+}
