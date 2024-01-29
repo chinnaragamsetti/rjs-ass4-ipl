@@ -22,7 +22,7 @@ class TeamMatches extends Component {
       const response=await fetch(`https://apis.ccbp.in/ipl/${id}`)
       const data=await response.json()
 
-      const updatedteamData ={
+      const updatedteamData =[
 
           {
           teamBannerUrl:data[0].team_banner_url,
@@ -55,7 +55,7 @@ class TeamMatches extends Component {
 
           }))
 
-    }
+        ]
     this.setState({isLoading:false,teamData:updatedteamData})
   }
 
@@ -72,6 +72,7 @@ class TeamMatches extends Component {
         )
   }
 
+  
   render() {
     const {isLoading} = this.state
     return (
