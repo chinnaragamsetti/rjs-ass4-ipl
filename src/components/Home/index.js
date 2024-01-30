@@ -3,11 +3,11 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import {Link} from 'react-router-dom'
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
-import TeamCard from './TeamCard'
+import TeamCard from '../TeamCard'
 import './index.css'
 
 class Home extends Component {
-  state = {teamList: {teams:[]}, isLoading: true}
+  state = {teamList: [], isLoading: true}
 
   componentDidMount() {
     this.getteamList()
@@ -16,18 +16,16 @@ class Home extends Component {
   getteamList = async () => {
     const response = await fetch('https://apis.ccbp.in/ipl')
     const data = await response.json()
-    const {teamList}=this.state
-    // console.log(data)
+    console.log(data)
     const formateData = data.teams.map(each => ({
       id: each.id,
       name: each.name,
       teamImageUrl: each.team_image_url,
     }))
-    console.log(formateData)
-    this.setState({teamList.teams:formateData, isLoading: false})
-    console.log(teamList)
+    //  console.log(formateData)
+    this.setState({teamList: formateData, isLoading: false})
+    // console.log(teamList)
   }
-
 
   render() {
     const {teamList, isLoading} = this.state
@@ -43,10 +41,10 @@ class Home extends Component {
             <p className="logotext">IPL Dashboard</p>
           </div>
           {isLoading ? (
-            <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
+            <Loader type="spin" color="#00BFFF" height={50} width={50} />
           ) : (
             <ul className="teamlist">
-              {teamList.teams.map(each => (
+              {teamList.map(each => (
                 <TeamCard teamData={each} key={each.id} />
               ))}
             </ul>

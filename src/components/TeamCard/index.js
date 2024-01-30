@@ -8,7 +8,7 @@ const TeamCard = props => {
   const {name, id, teamImageUrl} = teamData
 
   return (
-    <Link to={`/team-matches/${id}`}>
+    <Link to={`/team-matches/${id}`} className="eachteam">
       <div className="teamcontainer">
         <img src={teamImageUrl} alt="teamurl" className="teamurl" />
         <p className="teamname">{name}</p>

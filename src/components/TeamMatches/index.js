@@ -1,78 +1,78 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
-
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
-import './index.css'
-import { async } from 'fast-glob'
-import LatestMatch from './LatestMatch'
 
+import LatestMatch from '../LatestMatch'
+import MatchCard from '../MatchCard'
 import './index.css'
 
 class TeamMatches extends Component {
-  state = {isLoading: false, teamData: {}}
+  state = {isLoading: true, latestMatch: {}, allrecentMatches: []}
 
-  componentDidMount=()=>{
-      this.getteamData()
+  componentDidMount = () => {
+    this.getteamData()
   }
 
-  getteamData= async()=>{
-      const {match}=this.props 
-      const{params}=match 
-      const{id}=params 
-      const response=await fetch(`https://apis.ccbp.in/ipl/${id}`)
-      const data=await response.json()
+  getteamData = async () => {
+    const {match} = this.props
+    const {params} = match
+    const {id} = params
+    const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
+    console.log(response)
+    const data = await response.json()
+    console.log(data)
 
-      const updatedteamData =[
+    const teamBannerUrl = data.team_banner_url
+    const latestMatchDetails = {
+      umpires: data.latest_match_details.umpires,
+      result: data.latest_match_details.result,
+      manOfTheMatch: data.latest_match_details.man_of_the_match,
+      id: data.latest_match_details.id,
+      date: data.latest_match_details.date,
+      venue: data.latest_match_details.venue,
+      competingTeam: data.latest_match_details.competing_team,
+      competingTeamLogo: data.latest_match_details.competing_team_logo,
+      firstInnings: data.latest_match_details.first_innings,
+      secondInnings: data.latest_match_details.second_innings,
+      matchStatus: data.latest_match_details.match_status,
+    }
 
-          {
-          teamBannerUrl:data[0].team_banner_url,
-          latestMatchDetails:{
-              umpires:data[0].latest_match_details.umpires,
-              result:data[0].latest_match_details.result,
-              manOfTheMatch:data[0].latest_match_details.man_of_the_match,
-              id:data[0].latest_match_details.id,
-              date:data[0].latest_match_details.date,
-              venue:data[0].latest_match_details.venue,
-              competingTeam:data[0].latest_match_details.competing_team,
-              competingTeamLogo:data[0].latest_match_details.competing_team_logo,
-              firstInnings:data[0].latest_match_details.first_innings,
-              secondInnings:data[0].latest_match_details.second_innings,
-              matchStatus:data[0].latest_match_details.match_status,
-          }
-        },
-          recentMatches:data.recent_matches.map(each=>({
-              umpires:each.umpires,
-              result:each.result,
-              manOfTheMatch:each.man_of_the_match,
-              id:each.id,
-              date:each.date,
-              venue:each.venue,
-              competingTeam:each.competing_team,
-              competingTeamLogo:each.competing_team_logo,
-              firstInnings:each.first_innings,
-              secondInnings:each.second_innings,
-              matchStatus:each.match_status,
+    const recentMatches = data.recent_matches.map(each => ({
+      umpires: each.umpires,
+      result: each.result,
+      manOfTheMatch: each.man_of_the_match,
+      id: each.id,
+      date: each.date,
+      venue: each.venue,
+      competingTeam: each.competing_team,
+      competingLogo: each.competing_team_logo,
+      firstInnings: each.first_innings,
+      secondInnings: each.second_innings,
+      matchStatus: each.match_status,
+    }))
 
-          }))
-
-        ]
-    this.setState({isLoading:false,teamData:updatedteamData})
+    this.setState({
+      isLoading: false,
+      latestMatch: latestMatchDetails,
+      allrecentMatches: recentMatches,
+    })
   }
 
   rendergetteamData = () => {
-        const {teamData}=this.state
-        return(
-            <>
-                <img src={teamData[0].teamBannerUrl} className='banner'/>
-                <LatestMatch latestMatchDetails={teamData[0].latestMatchDetails}/>
-                <ul className='matchcardList'>
-                    {teamData.recentMatches.map(each=>(<MatchCard matchDetails={each} key={each.id}/>))}
-                </ul>
-            </>
-        )
+    const {latestmatch, recentmatches, teamBannerUrl} = this.state
+    return (
+      <>
+        <img src={teamBannerUrl} className="banner" />
+        <LatestMatch latest={latestMatch} />
+        <ul className="matchcardList">
+          {allrecentMatches.map(each => (
+            <MatchCard matchCarddetails={each} key={each.id} />
+          ))}
+        </ul>
+      </>
+    )
   }
 
-  
   render() {
     const {isLoading} = this.state
     return (
@@ -86,5 +86,4 @@ class TeamMatches extends Component {
     )
   }
 }
-
 export default TeamMatches
