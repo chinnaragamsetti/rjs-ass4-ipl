@@ -9,7 +9,7 @@ const MatchCard = props => {
   return (
     <div className="eaclist">
       <img src={competingLogo} alt={competingTeam} className="competingimage" />
-      <h1 className="teamnames">{competingTeam}</h1>
+      <p className="teamnames">{competingTeam}</p>
       <p className="result">{result}</p>
       <p className="status">{status}</p>
     </div>

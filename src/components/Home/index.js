@@ -38,10 +38,16 @@ class Home extends Component {
               className="logo"
               alt="ipl logo"
             />
-            <p className="logotext">IPL Dashboard</p>
+            <h1 className="logotext">IPL Dashboard</h1>
           </div>
           {isLoading ? (
-            <Loader type="spin" color="#00BFFF" height={50} width={50} />
+            <Loader
+              testid="loader"
+              type="ThreeDots"
+              color="#00BFFF"
+              height={50}
+              width={50}
+            />
           ) : (
             <ul className="teamlist">
               {teamList.map(each => (

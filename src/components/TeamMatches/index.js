@@ -7,7 +7,7 @@ import MatchCard from '../MatchCard'
 import './index.css'
 
 class TeamMatches extends Component {
-  state = {isLoading: true, latestMatch: {}, allrecentMatches: []}
+  state = {isLoading: true, latestMatch: {}, allrecentMatches: [], banner: ''}
 
   componentDidMount = () => {
     this.getteamData()
@@ -55,14 +55,15 @@ class TeamMatches extends Component {
       isLoading: false,
       latestMatch: latestMatchDetails,
       allrecentMatches: recentMatches,
+      banner: teamBannerUrl,
     })
   }
 
   rendergetteamData = () => {
-    const {latestmatch, recentmatches, teamBannerUrl} = this.state
+    const {latestMatch, allrecentMatches, banner} = this.state
     return (
       <>
-        <img src={teamBannerUrl} className="banner" />
+        <img src={banner} className="banner" alt="teambanner" />
         <LatestMatch latest={latestMatch} />
         <ul className="matchcardList">
           {allrecentMatches.map(each => (
