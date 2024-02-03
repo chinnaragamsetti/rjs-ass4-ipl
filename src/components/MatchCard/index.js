@@ -3,8 +3,8 @@
 import './index.css'
 
 const MatchCard = props => {
-  const {matchCardDetails} = props
-  const {competingLogo, competingTeam, result, status} = matchCardDetails
+  const {matchCarddetails} = props
+  const {competingLogo, competingTeam, result, status} = matchCarddetails
 
   return (
     <div className="eaclist">
