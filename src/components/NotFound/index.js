@@ -12,7 +12,7 @@ const NotFound = () => (
       />
       <p className="logotext">IPL Dashboard</p>
     </div>
-    <p className="notfound">Not Found</p>
+    <h1 className="notfound">Not Found</h1>
   </div>
 )
 export default NotFound
