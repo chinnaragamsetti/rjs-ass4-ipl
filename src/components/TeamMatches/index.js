@@ -17,9 +17,9 @@ class TeamMatches extends Component {
     const {params} = match
     const {id} = params
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
-    console.log(response)
+    //   console.log(response)
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
 
     const teamBannerUrl = data.team_banner_url
     const latestMatchDetails = {
@@ -62,7 +62,8 @@ class TeamMatches extends Component {
     const {latestMatch, allrecentMatches, banner} = this.state
     return (
       <>
-        <img src={banner} className="banner" alt="teambanner" />
+        <img src={banner} className="banner" alt="team banner" />
+        <p className="latestheading">Latest Matches</p>
         <LatestMatch latest={latestMatch} />
         <ul className="matchcardList">
           {allrecentMatches.map(each => (

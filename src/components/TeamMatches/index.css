@@ -2,17 +2,52 @@
 .teammaincontainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  padding: 10px;
+  padding: 40px;
+  padding-top: 80px;
   background-image: linear-gradient(to bottom, #d91c1f, #a4261d, #1e293b);
 }
 
 .banner {
   width: 100%;
-  height: 15%;
+  height: 150px;
+}
+.latestheading {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 .matchcardList {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  overflow: auto;
+  padding-left: 0px;
+}
+.latestandmatchcard {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .banner {
+    width: 100%;
+    height: 300px;
+  }
+  .matchcardList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-left: 0px;
+  }
 }

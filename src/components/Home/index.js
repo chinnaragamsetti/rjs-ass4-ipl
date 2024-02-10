@@ -16,7 +16,7 @@ class Home extends Component {
   getteamList = async () => {
     const response = await fetch('https://apis.ccbp.in/ipl')
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     const formateData = data.teams.map(each => ({
       id: each.id,
       name: each.name,

@@ -4,14 +4,20 @@ import './index.css'
 
 const MatchCard = props => {
   const {matchCarddetails} = props
-  const {competingLogo, competingTeam, result, status} = matchCarddetails
-
+  const {competingLogo, competingTeam, result, matchStatus} = matchCarddetails
+  // console.log(matchStatus)
   return (
-    <div className="eaclist">
-      <img src={competingLogo} alt={competingTeam} className="competingimage" />
+    <div className="eachlist">
+      <img
+        src={competingLogo}
+        alt={`competing team ${competingTeam}`}
+        className="competingimage"
+      />
       <p className="teamnames">{competingTeam}</p>
       <p className="result">{result}</p>
-      <p className="status">{status}</p>
+      <p className={matchStatus === 'Won' ? 'wonstatus' : 'loststatus'}>
+        {matchStatus}
+      </p>
     </div>
   )
 }

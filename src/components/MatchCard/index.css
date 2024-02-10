@@ -1,16 +1,23 @@
 /* Write your CSS here */
 
-.eaclist {
+.eachlist {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  text-align: center;
   align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: black;
+  width: 45%;
+  height: 150px;
+  border-radius: 10px;
 }
 .competingimage {
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
 }
-.teamname {
+.teamnames {
   font-size: 10px;
   color: #ffffff;
 }
@@ -18,7 +25,48 @@
   font-size: 5px;
   color: #ffffff;
 }
-.status {
-  font-size: 5px;
+.loststatus {
+  font-size: 10px;
   color: red;
+}
+.wonstatus {
+  font-size: 10px;
+  color: lightgreen;
+}
+
+@media screen and (min-width: 768px) {
+  .eachlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: black;
+    width: 30%;
+    height: 300px;
+    border-radius: 10px;
+  }
+
+  .competingimage {
+    width: 100px;
+    height: 100px;
+  }
+  .teamnames {
+    font-size: 20px;
+    color: #ffffff;
+  }
+  .result {
+    font-size: 10px;
+    color: #ffffff;
+  }
+  .loststatus {
+    font-size: 20px;
+    color: red;
+  }
+  .wonstatus {
+    font-size: 20px;
+    color: lightgreen;
+  }
 }
